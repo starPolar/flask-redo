@@ -5,6 +5,7 @@ from config import Config
 
 from resources.login import UserRegisterResource
 
+# __name__ 이란
 app = Flask(__name__)
 
 api = Api(app)
