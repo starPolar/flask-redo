@@ -7,7 +7,8 @@ class UserRegisterResource(Resource) :
     def post(self) :
 
         data = request.get_json()
-
+        # /todo 1. jwt 연결
+        # /todo 2. 블로그 보강
         try :
 
         except :
