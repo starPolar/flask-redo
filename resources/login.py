@@ -1,18 +1,48 @@
 from flask_restful import Resource
 from flask import request
 
-from mysql_connection import get_con
+from mysql_connection import get_connection
+import mysql.connector
 
 class UserRegisterResource(Resource) :
     def post(self) :
 
-        data = request.get_json()
-        # /todo 1. jwt 연결
-        # /todo 2. 블로그 보강
-        try :
+        # {
+        #     "email": "user1@gmail.com",
+        #     "password": "abcd1234",
+        #     "name": "nana",
+        #     "gender": "2"
+        # }
 
-        except :
-            pass
-        return
+        data = request.get_json()
+
+        try :
+            connection = get_connection()
+
+            query = '''insert into user
+                    (email, password, name, gender)
+                    values
+                    (%s, %s, %s, %s);'''
+
+            record = (data['email'],
+                    data['password'],
+                    data['name'],
+                    data['gender'])
+
+            cursor = connection.cursor()
+
+            cursor.execure(query, record)
+
+            connection.commit()
+
+            cursor.close()
+            connection.close()
+
+        except mysql.connector.Error as e :
+            cursor.close()
+            connection.close()
+            return {'error' : str(e), 'error_no' : 1}, 503
+
+        return {'result' : 'success'}, 200
 
 

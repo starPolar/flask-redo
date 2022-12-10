@@ -1,2 +1,6 @@
 class config :
+    #JWT_SECRET_KEY
+
+    ACCESS_KEY = 'AKIAXGPJ6QL6UZU2TALJ'
+    SECRET_ACCESS = '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'
     pass
