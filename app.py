@@ -1,14 +1,14 @@
 from flask import Flask
 from flask_restful import Api
 
-from config import config
+from config import Config
 
 from resources.login import UserRegisterResource
 
 # __name__ 이란
 app = Flask(__name__)
 
-app.config.from_object(config)
+app.config.from_object(Config)
 
 api = Api(app)
 
