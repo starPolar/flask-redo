@@ -18,6 +18,6 @@ api.add_resource(UserRegisterResource, '/users/register')
 
 #---
 
-# app.py가 app.py를 실행시킬 때 app.run() = flask 동작해라.
+# __name__ 이란 = app.py가 app.py를 실행시킬 때 app.run() = flask 동작해라.
 if __name__ == '__main__' :
     app.run()

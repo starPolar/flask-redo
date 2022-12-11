@@ -45,4 +45,5 @@ class UserRegisterResource(Resource) :
 
         return {'result' : 'success'}, 200
 
+# todo :sql문들, utils go 
 
