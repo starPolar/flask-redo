@@ -31,7 +31,7 @@ class UserRegisterResource(Resource) :
 
             cursor = connection.cursor()
 
-            cursor.execure(query, record)
+            cursor.execute(query, record)
 
             connection.commit()
 
